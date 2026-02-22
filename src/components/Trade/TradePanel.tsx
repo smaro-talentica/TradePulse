@@ -104,6 +104,18 @@ export default function TradePanel({ ticker }: TradePanelProps) {
         }
       } else {
         // Limit order
+        if (side === 'buy') {
+          const limitCost = multiplyCents(triggerPriceCents, quantity);
+          if (limitCost > state.balanceCents) {
+            showFeedback('error', `Insufficient balance. Need ${formatUsd(limitCost)}.`);
+            return;
+          }
+        } else {
+          if (quantity > ownedQty) {
+            showFeedback('error', `Insufficient holdings. You own ${ownedQty.toFixed(4)} ${ticker}.`);
+            return;
+          }
+        }
         dispatch({
           type: 'ADD_LIMIT_ORDER',
           order: {
