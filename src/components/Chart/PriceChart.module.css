@@ -1,0 +1,86 @@
+/**
+ * PriceChart.module.css
+ */
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-primary);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Chart header bar ── */
+.header {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 10px 16px 6px;
+  flex-shrink: 0;
+}
+
+.header__symbol {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.header__price {
+  font-size: 20px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.header__price--up {
+  color: var(--accent-green);
+}
+
+.header__price--down {
+  color: var(--accent-red);
+}
+
+.header__change {
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+
+.header__change--up {
+  color: var(--accent-green);
+}
+
+.header__change--down {
+  color: var(--accent-red);
+}
+
+/* ── SVG wrapper ── */
+.svgWrapper {
+  flex: 1;
+  min-height: 0;
+  padding: 0 4px 4px;
+}
+
+.svgWrapper svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* ── SVG elements (styled via inline attrs + these helpers) ── */
+.gridLine {
+  stroke: var(--bg-tertiary);
+  stroke-width: 1;
+  stroke-dasharray: 3 4;
+}
+
+.yLabel {
+  fill: #ffffff;
+  font-size: 10px;
+  font-weight: 600;
+  font-family: 'Inter', system-ui, sans-serif;
+  dominant-baseline: middle;
+}
+
+.currentDot {
+  filter: drop-shadow(0 0 3px currentColor);
+}

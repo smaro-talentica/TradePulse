@@ -1,0 +1,151 @@
+.watchlist {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* ── Add ticker bar ── */
+.addBar {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.addBar__select {
+  flex: 1;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  color: var(--text-primary);
+  padding: 6px 8px;
+  font-size: 12px;
+  outline: none;
+  cursor: pointer;
+}
+
+.addBar__select:focus {
+  border-color: var(--accent-gold);
+}
+
+.addBar__btn {
+  background: var(--accent-gold);
+  color: #000;
+  border-radius: 4px;
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  transition: opacity 0.15s;
+}
+
+.addBar__btn:hover {
+  opacity: 0.85;
+}
+
+.addBar__btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ── Ticker row ── */
+.row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  transition: background 0.12s, border-color 0.12s;
+  background: transparent;
+  user-select: none;
+}
+
+.row:hover {
+  background: var(--bg-tertiary);
+}
+
+.row--selected {
+  background: var(--bg-hover) !important;
+  border-color: var(--accent-gold) !important;
+}
+
+/* symbol + name */
+.row__info {
+  display: flex;
+  flex-direction: column;
+  min-width: 44px;
+}
+
+.row__symbol {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.row__name {
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+/* direction flash dot */
+.row__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  flex-shrink: 0;
+  transition: background 0.3s;
+}
+
+.row__dot--up {
+  background: var(--accent-green);
+  box-shadow: 0 0 4px var(--accent-green);
+}
+
+.row__dot--down {
+  background: var(--accent-red);
+  box-shadow: 0 0 4px var(--accent-red);
+}
+
+/* price + pct */
+.row__prices {
+  margin-left: auto;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+}
+
+.row__price {
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-primary);
+}
+
+.row__change {
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+
+.row__change--up {
+  color: var(--accent-green);
+}
+
+.row__change--down {
+  color: var(--accent-red);
+}
+
+/* remove button */
+.row__remove {
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 10px;
+  padding: 2px 4px;
+  border-radius: 3px;
+  flex-shrink: 0;
+  transition: color 0.12s, background 0.12s;
+}
+
+.row__remove:hover {
+  color: var(--accent-red);
+  background: rgba(246, 70, 93, 0.12);
+}
